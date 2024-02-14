@@ -1,0 +1,94 @@
+[
+    {
+      "model": "course.course",
+      "pk": 1,
+      "fields": {
+        "course_name": "Physics",
+        "description": "Introduction to Physics",
+        "start_date": "2024-03-01"
+      }
+    },
+    {
+      "model": "course.course",
+      "pk": 2,
+      "fields": {
+        "course_name": "Chemistry",
+        "description": "Introduction to Chemistry",
+        "start_date": "2024-03-15"
+      }
+    },
+    {
+      "model": "course.course",
+      "pk": 3,
+      "fields": {
+        "course_name": "Biology",
+        "description": "Introduction to Biology",
+        "start_date": "2024-04-01"
+      }
+    },
+    {
+      "model": "course.course",
+      "pk": 4,
+      "fields": {
+        "course_name": "Mathematics",
+        "description": "Introduction to Mathematics",
+        "start_date": "2024-04-15"
+      }
+    },
+    {
+      "model": "course.course",
+      "pk": 5,
+      "fields": {
+        "course_name": "History",
+        "description": "Introduction to History",
+        "start_date": "2024-05-01"
+      }
+    },
+    {
+      "model": "course.course",
+      "pk": 6,
+      "fields": {
+        "course_name": "Computer Science",
+        "description": "Introduction to Computer Science",
+        "start_date": "2024-05-15"
+      }
+    },
+    {
+      "model": "course.course",
+      "pk": 7,
+      "fields": {
+        "course_name": "English Literature",
+        "description": "Introduction to English Literature",
+        "start_date": "2024-06-01"
+      }
+    },
+    {
+      "model": "course.course",
+      "pk": 8,
+      "fields": {
+        "course_name": "Art",
+        "description": "Introduction to Art",
+        "start_date": "2024-06-15"
+      }
+    },
+    {
+      "model": "course.course",
+      "pk": 9,
+      "fields": {
+        "course_name": "Geography",
+        "description": "Introduction to Geography",
+        "start_date": "2024-07-01"
+      }
+    },
+    {
+      "model": "course.course",
+      "pk": 10,
+      "fields": {
+        "course_name": "Economics",
+        "description": "Introduction to Economics",
+        "start_date": "2024-07-15"
+      }
+    }
+    
+  ]
+  

@@ -1,0 +1,162 @@
+[
+    {
+        "model": "course.student",
+        "pk": 1,
+        "fields": {
+            "student_name": "John Doe",
+            "student_class": "Class A"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 2,
+        "fields": {
+            "student_name": "Jane Smith",
+            "student_class": "Class B"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 3,
+        "fields": {
+            "student_name": "Michael Johnson",
+            "student_class": "Class A"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 4,
+        "fields": {
+            "student_name": "Emily Brown",
+            "student_class": "Class C"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 5,
+        "fields": {
+            "student_name": "David Wilson",
+            "student_class": "Class B"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 6,
+        "fields": {
+            "student_name": "Sophia Martinez",
+            "student_class": "Class A"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 7,
+        "fields": {
+            "student_name": "James Anderson",
+            "student_class": "Class C"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 8,
+        "fields": {
+            "student_name": "Olivia Taylor",
+            "student_class": "Class B"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 9,
+        "fields": {
+            "student_name": "Ethan Thomas",
+            "student_class": "Class A"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 10,
+        "fields": {
+            "student_name": "Isabella White",
+            "student_class": "Class C"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 11,
+        "fields": {
+            "student_name": "Alexander Lee",
+            "student_class": "Class A"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 12,
+        "fields": {
+            "student_name": "Mia Harris",
+            "student_class": "Class B"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 13,
+        "fields": {
+            "student_name": "William Clark",
+            "student_class": "Class C"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 14,
+        "fields": {
+            "student_name": "Ava Lewis",
+            "student_class": "Class A"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 15,
+        "fields": {
+            "student_name": "Daniel Robinson",
+            "student_class": "Class B"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 16,
+        "fields": {
+            "student_name": "Sophie Walker",
+            "student_class": "Class C"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 17,
+        "fields": {
+            "student_name": "Jackson Wright",
+            "student_class": "Class A"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 18,
+        "fields": {
+            "student_name": "Emma King",
+            "student_class": "Class B"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 19,
+        "fields": {
+            "student_name": "Liam Scott",
+            "student_class": "Class C"
+        }
+    },
+    {
+        "model": "course.student",
+        "pk": 20,
+        "fields": {
+            "student_name": "Chloe Hall",
+            "student_class": "Class A"
+        }
+    }
+]

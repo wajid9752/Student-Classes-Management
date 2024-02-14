@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row justify-content-center mt-5 mb-5">
+    <div class="col-md-8 shadow p-3">
+        <p>
+            You are adding Attendace of <strong class="text-success">{{enroll.student_id}}</strong> for the course of <strong class="text-success">{{enroll.course_id}}</strong>
+        </p>
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                
+                <label  class="form-label">Course Classes</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" name="class_id">
+                    <option selected>Select Attended Class</option>
+                    {% for i in classes_dropdown %}
+                    <option value="{{i.id}}"> {{i.class_name}}</option>
+                    {% endfor %}
+                </select>
+              
+              
+              
+                </div>
+            <input type="submit" class="form-control" >
+        </form>
+    </div>
+</div>
+{% endblock content %}

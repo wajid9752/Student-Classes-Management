@@ -1,0 +1,19 @@
+steps==>
+ 
+1.) First Create a Course also add starting date for the course.
+ 
+2.) Inside that Course add multiple classes and give it start day like (1,2,3....).
+ 
+3.) Inside that Course add multiple student.
+ 
+4.) each student can finish there own classes.
+ 
+5.) after that show end date of the course.
+ 
+6.) suppose me "Varun" as a student and you added 25 classes and I 
+completed 5 classes then 25-5 => 20 remening classes then i can finish that curse after 20 days.
+ 
+then give me end date after 20 days to start date of the course.
+ 
+and the course start date will be course start date.
+has context menu

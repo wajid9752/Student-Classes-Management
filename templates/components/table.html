@@ -1,0 +1,33 @@
+{% load custom_filters %}
+<table class="table mt-5 mb-5">
+    <thead class="bg-dark text-white">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Student</th>
+        <th scope="col">Course</th>
+        <th scope="col">Start Date</th>
+        <th scope="col">End Date</th>
+        <th scope="col">Attended</th>
+        <th scope="col">Remains</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+       {% for student in students %} 
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>{{student.student_id.student_name}}</td>
+        <td>{{student.course_id}}</td>
+        <td>{{student.course_id.start_date}}</td>
+        <td>{{ student.end_date }}</td>
+        <td>{{student.enrol_course.all.count}}</td>
+        {% with remaining_classes=student.classes_num|sub:student.enrol_course.all.count %}
+        <td>{{ remaining_classes }}</td>
+        {% endwith %}
+        <td> <a href="{% url 'add-attendance' student.id %}">Add Attendace</a></td>
+      </tr>
+     {% endfor %}
+    </tbody>
+
+
+  </table>
