@@ -1,33 +1,99 @@
 {% load custom_filters %}
 <table class="table mt-5 mb-5">
     <thead class="bg-dark text-white">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Student</th>
-        <th scope="col">Course</th>
-        <th scope="col">Start Date</th>
-        <th scope="col">End Date</th>
-        <th scope="col">Attended</th>
-        <th scope="col">Remains</th>
-        <th scope="col">Action</th>
-      </tr>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Student</th>
+            <th scope="col">Course</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Attended</th>
+            <th scope="col">Remains</th>
+            <th scope="col">Weekend</th>
+            <th scope="col">Action</th>
+        </tr>
     </thead>
     <tbody>
-       {% for student in students %} 
-      <tr>
-        <th scope="row">{{forloop.counter}}</th>
-        <td>{{student.student_id.student_name}}</td>
-        <td>{{student.course_id}}</td>
-        <td>{{student.course_id.start_date}}</td>
-        <td>{{ student.end_date }}</td>
-        <td>{{student.enrol_course.all.count}}</td>
-        {% with remaining_classes=student.classes_num|sub:student.enrol_course.all.count %}
-        <td>{{ remaining_classes }}</td>
-        {% endwith %}
-        <td> <a href="{% url 'add-attendance' student.id %}">Add Attendace</a></td>
-      </tr>
-     {% endfor %}
+        {% for student in students %}
+        <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{ student.student_id.student_name }}</td>
+            <td>{{ student.course_id }}</td>
+            <td>{{ student.course_id.start_date }}</td>
+            <td id="end-date-{{ student.id }}">{{ student.end_date }}</td>
+            <td>{{ student.enrol_course.all.count }}</td>
+            {% with remaining_classes=student.classes_num|sub:student.enrol_course.all.count %}
+            <td>{{ remaining_classes }}</td>
+            {% endwith %}
+
+            <td>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="weekend-{{ student.id }}"
+                        id="include-weekend-{{ student.id }}" value="include" checked>
+                    <label class="form-check-label" for="include-weekend-{{ student.id }}">
+                        Include
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="weekend-{{ student.id }}"
+                        id="exclude-weekend-{{ student.id }}" value="exclude">
+                    <label class="form-check-label" for="exclude-weekend-{{ student.id }}">
+                        Exclude
+                    </label>
+                </div>
+            </td>
+
+            <td><a href="{% url 'add-attendance' student.id %}">Add Attendance</a></td>
+        </tr>
+        {% endfor %}
     </tbody>
+</table>
 
 
-  </table>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const students = document.querySelectorAll("[id^='end-date-']");
+      students.forEach(function (student) {
+          const studentId = student.id.split("-").pop();
+          const endDate = new Date(student.textContent);
+          const today = new Date();
+
+          const includeWeekendRadio = document.getElementById(`include-weekend-${studentId}`);
+          const excludeWeekendRadio = document.getElementById(`exclude-weekend-${studentId}`);
+
+          function calculateEndDate() {
+              let newEndDate = new Date(endDate.getTime());
+              const daysToAdd = excludeWeekends(today, newEndDate);
+              newEndDate.setDate(newEndDate.getDate() + daysToAdd);
+              while (newEndDate.getDay() === 0 || newEndDate.getDay() === 6) {
+                  newEndDate.setDate(newEndDate.getDate() + 1); // Increment end date until it's a weekday
+              }
+              return newEndDate.toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
+          }
+
+          function excludeWeekends(startDate, endDate) {
+              let daysToAdd = 0;
+              while (startDate < endDate) {
+                  if (startDate.getDay() === 0 || startDate.getDay() === 6) {
+                      daysToAdd++;
+                  }
+                  startDate.setDate(startDate.getDate() + 1);
+              }
+              return daysToAdd;
+          }
+
+          function updateEndDate() {
+              if (excludeWeekendRadio.checked) {
+                  student.textContent = calculateEndDate();
+              }
+          }
+
+          includeWeekendRadio.addEventListener("change", function () {
+              student.textContent = endDate.toLocaleDateString("en-US", { month: 'long', day: 'numeric', year: 'numeric' });
+          });
+
+          excludeWeekendRadio.addEventListener("change", updateEndDate);
+      });
+  });
+</script>
+

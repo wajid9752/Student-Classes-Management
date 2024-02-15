@@ -35,7 +35,6 @@ class Student(models.Model):
     
 
 
-
 class Course_Enrolment(models.Model):
     course_id = models.ForeignKey(  
         Course,

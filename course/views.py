@@ -21,17 +21,13 @@ def home(request):
     
     return render(request , "home.html" , context={"students":enrollments})
 
-
 @login_required(login_url="login")
 def add_attendance(request,pk):
     obj=Course_Enrolment.objects.get(id=pk)
     if request.POST:
         get_id = request.POST.get("class_id")
         cls_obj=Course_Classes.objects.get(id=get_id)
-        if Attendance.objects.filter( course_enrolment = obj , attended_date = date.today() ):
-            messages.success(request , "You can not add more than one attendance in single day")
-            return redirect("add-attendance" , pk)
-
+        
         Attendance.objects.create(
             course_enrolment = obj ,
             attended_class = cls_obj ,
