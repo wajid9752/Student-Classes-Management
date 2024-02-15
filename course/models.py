@@ -23,7 +23,8 @@ class Course_Classes(models.Model):
     def __str__(self):
         return str(self.course_id.course_name) +": "+ str(self.class_number)
     
-
+    class Meta:
+        verbose_name = "Course Lecture Classes"
 
 class Student(models.Model):
     student_name = models.CharField(max_length = 50)
@@ -31,6 +32,8 @@ class Student(models.Model):
 
     def __str__(self):
         return self.student_name
+    
+
 
 
 class Course_Enrolment(models.Model):
@@ -39,6 +42,7 @@ class Course_Enrolment(models.Model):
         on_delete=models.CASCADE,
         related_name="students"
     )
+
     student_id = models.ForeignKey(  
         Student,
         on_delete=models.CASCADE,
@@ -51,7 +55,6 @@ class Course_Enrolment(models.Model):
 
     def __str__(self):
         return f"{self.course_id.course_name}: {self.student_id.student_name}"
-
 
 class Attendance(models.Model):
     
@@ -74,6 +77,14 @@ class Attendance(models.Model):
                                       )
     remark = models.TextField(null=True , blank=True)
     attended_date = models.DateField()
+
+    def __str__(self):
+        return f"{self.course_enrolment.course_id.course_name}: {self.course_enrolment.student_id.student_name}"
+    
+    class Meta:
+        verbose_name = "Student Course Wise Attendance"
+
+
 
     
 

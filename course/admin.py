@@ -45,14 +45,18 @@ class StudentAdmin(admin.ModelAdmin):
 admin.site.register(Student, StudentAdmin)
 
 class AttendanceAdmin(admin.ModelAdmin):
-    list_display = ('student_name', 'class_name', 'attended_date', 'remark')
+    list_display = ('student_name', 'class_name','course', 'attended_date', 'remark')
     search_fields = ['student_id__student_name']
-    list_filter = ['attended_date']
+    list_filter = ['attended_date','course_enrolment__student_id' , 'course_enrolment__course_id']
 
     def student_name(self, obj):
         return obj.student_id.student_name
 
     def class_name(self, obj):
         return obj.attended_class.class_name
+    
+    def course(self, obj):
+        return obj.course_enrolment.course_id.course_name
+    
 
 admin.site.register(Attendance, AttendanceAdmin)
